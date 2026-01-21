@@ -1,13 +1,114 @@
-// alert("please work!")
+
 const apiLink = "https://herrerahostingdh-ayf7fhbzg6fdgvdr.westus3-01.azurewebsites.net/api/CPUResponse";
+const SelectRock = document.getElementById("SelectRock");
+const SelectPaper = document.getElementById("SelectPaper");
+const SelectScissors = document.getElementById("SelectScissors");
+const SelectLizard = document.getElementById("SelectLizard");
+const SelectSpock = document.getElementById("SelectSpock")
+
+const displayUserInput = document.getElementById("displayUserInput")
+const displayCPUInput = document.getElementById("displayCPUInput");
+
+const displayResults = document.getElementById("displayResults");
+
+const userWins = document.getElementById("userWins");
+const cpuWins = document.getElementById("cpuWins");
 
 
+let winsCount = 0;
+let losesCount = 0;
 
-async function getCPUAnswer() {
+async function getCPUAnswer(user) {
     const response = await fetch(apiLink);
     const data = await response.text();
     console.log(data);
-    return data;
-    
+    //Here I call the function to find the winner!
+    let winner = getWinner(user, data);
+    console.log(winner);
+    console.log(data)
+    //Add function to display user's choice AND CPU's Choice!
+    DisplayChoices(user, data);
+    displayResults.textContent = winner
+    return winner;
 }
-getCPUAnswer();
+const DisplayChoices = (userChoice, cpuChoice) => {
+    if(userChoice === "Rock"){
+        displayUserInput.src = "../Assets/Rock.png";
+        displayUserInput.style = "height: 180px;"
+
+
+    }
+    else if(userChoice === "Paper")
+        displayUserInput.src = "../Assets/Paper.png";
+    else if(userChoice === "Scissors")
+        displayUserInput.src = "../Assets/Scissors.png";
+    else if(userChoice === "Lizard")
+        displayUserInput.src = "../Assets/Lizard.png";
+    else displayUserInput.src = "../Assets/Spock.png";
+
+    if(cpuChoice === "Rock")
+        displayCPUInput.src = "../Assets/Rock.png";
+    else if(cpuChoice === "Paper")
+        displayCPUInput.src = "../Assets/Paper.png";
+    else if(cpuChoice === "Scissors")
+        displayCPUInput.src = "../Assets/Scissors.png";
+    else if(cpuChoice === "Lizard")
+        displayCPUInput.src = "../Assets/Lizard.png";
+    else displayCPUInput.src = "../Assets/Spock.png";
+    console.log("end of display choices")
+}
+
+//add event listeners for all select elements and create a function that test for the winner!
+//a function that will return the results of the game!
+const getWinner = (user, cpu) => {
+    console.log("GetWinner is Evoked!"+ cpu)
+    if (user === cpu) {
+        return "It's a tie!\nTry Again!";
+    }
+    else {
+        switch (user) {
+            case "Rock":
+                if (cpu === "Paper" || cpu === "Spock")
+                    return `${cpu} beats Rock!\nYou Lose!!`;
+                else return `Rock beats ${cpu}! \nYou Win!!`;
+            case "Paper":
+                if (cpu === "Lizard" || cpu === "Scissors")
+                    return `${cpu} beats Paper!\nYou Lose!!`;
+                else return `Paper beats ${cpu}! \nYou Win!!`;
+            case "Scissors":
+                if (cpu === "Rock" || cpu === "Spock")
+                    return `${cpu} beats Scissors!\nYou Lose!!`;
+                else return `Scissors beats ${cpu}! \nYou Win!!`;
+            case "Lizard":
+                if (cpu === "Rock" || cpu === "Scissors")
+                    return `${cpu} beats Lizard!\nYou Lose!!`;
+                else return `Lizard beats ${cpu}! \nYou Win!!`;
+            default:
+                if (cpu === "Lizard" || cpu === "Paper")
+                    return `${cpu} beats Spock!\nYou Lose!!`;
+                else return `Spock beats ${cpu}! \nYou Win!!`;
+        }
+    }
+}
+
+SelectRock.addEventListener("click", () => {
+    console.log("Rock has been pressed!")
+    getCPUAnswer("Rock");
+});
+
+SelectPaper.addEventListener("click", ()=>{
+    console.log("Rock has been pressed!")
+    getCPUAnswer("Paper");
+});
+SelectScissors.addEventListener("click", ()=>{
+    console.log("Rock has been pressed!")
+    getCPUAnswer("Scissors");
+});
+SelectLizard.addEventListener("click", ()=>{
+    console.log("Rock has been pressed!")
+    getCPUAnswer("Lizard");
+});
+SelectSpock.addEventListener("click", ()=>{
+    console.log("Rock has been pressed!")
+    getCPUAnswer("Spock");
+});
