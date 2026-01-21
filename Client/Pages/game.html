@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RPSLS Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <h1 class="mt-5 text-center">Please Select Your Guess!</h1>
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col mx-auto">
+                <img id="SelectRock" src="../Assets/Rock.png" alt="Rock!">
+            </div>
+            <div class="col mx-auto">
+                <img id="SelectPaper" src="../Assets/Paper.png" alt="Paper">
+            </div>
+            <div class="col mx-auto">
+                <img id="SelectScissors" src="../Assets/Scissors.png" alt="">
+            </div>
+            <div class="col mx-auto">
+                <img id="SelectLizard" src="../Assets/Lizard.png" alt="Lizard!">
+            </div>
+            <div class="col mx-auto">
+                <img id="SelectSpock" src="../Assets/Spock.png" alt="Spock!">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col mt-5">
+                    <div id="displayUserInput">
+                        <!-- <img src="../Assets/Lizard.png" alt=""> -->
+                    </div>
+                    <p>VS.</p>
+                    <div class="d-flex justify-context-center" id="displayCPUInput">
+                        <!-- <img src="../Assets/Paper.png" alt=""> -->
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row d-flex justify-context-center">
+            <div class="col">
+                <p id="userWins" class="sourceSerifPro">Your wins: 0</p>
+                <p id="cpuWins" class="sourceSerifPro">CPU wins: 0 </p>
+            </div>
+            <div class="col">
+                <a href="../index.html" class="btn btn-info btn-lg" >View the Rules</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script type="module" src="../Scripts/app.js"></script>
+</body>
+
+</html>
