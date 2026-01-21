@@ -34,74 +34,87 @@ async function getCPUAnswer(user) {
     return winner;
 }
 const DisplayChoices = (userChoice, cpuChoice) => {
-    if(userChoice === "Rock"){
+    if (userChoice === "Rock") {
         displayUserInput.src = "../Assets/Rock.png";
         displayUserInput.style = "height: 180px;"
     }
-    else if(userChoice === "Paper")
+    else if (userChoice === "Paper") {
         displayUserInput.src = "../Assets/Paper.png";
-    else if(userChoice === "Scissors")
+        displayUserInput.style = "height: 173px";
+    }
+    else if (userChoice === "Scissors") {
         displayUserInput.src = "../Assets/Scissors.png";
-    else if(userChoice === "Lizard")
+        displayUserInput.style = "height: 160px";
+    }
+    else if (userChoice === "Lizard") {
         displayUserInput.src = "../Assets/Lizard.png";
-    else displayUserInput.src = "../Assets/Spock.png";
+        displayUserInput.style = "height: 173px";
+    }
+    else {
+        displayUserInput.src = "../Assets/Spock.png"
+        displayUserInput.style = "height: 230px";
+    }
 
-    if(cpuChoice === "Rock")
+    if (cpuChoice === "Rock") {
         displayCPUInput.src = "../Assets/Rock.png";
-    else if(cpuChoice === "Paper")
+        displayCPUInput.style = "height: 180px;"
+    }
+    else if (cpuChoice === "Paper") {
         displayCPUInput.src = "../Assets/Paper.png";
-    else if(cpuChoice === "Scissors")
+        displayCPUInput.style = "height: 173px";
+    }
+    else if (cpuChoice === "Scissors") {
         displayCPUInput.src = "../Assets/Scissors.png";
-    else if(cpuChoice === "Lizard")
+        displayCPUInput.style = "height: 160px";
+    }
+    else if (cpuChoice === "Lizard") {
         displayCPUInput.src = "../Assets/Lizard.png";
-    else displayCPUInput.src = "../Assets/Spock.png";
-    console.log("end of display choices")
+        displayCPUInput.style = "height: 173px";
+    }
+    else {
+        displayCPUInput.src = "../Assets/Spock.png";
+        displayCPUInput.style = "height: 230px";
+    }
 }
 
 //add event listeners for all select elements and create a function that test for the winner!
 //a function that will return the results of the game!
 const getWinner = (user, cpu) => {
-    console.log("GetWinner is Evoked!"+ cpu)
+    console.log("GetWinner is Evoked!" + cpu)
     if (user === cpu) {
         return "It's a tie!\nTry Again!";
     }
     else {
         switch (user) {
             case "Rock":
-                if (cpu === "Paper" || cpu === "Spock")
-                {
+                if (cpu === "Paper" || cpu === "Spock") {
                     losesCount++;
                     return `${cpu} beats Rock!\nYou Lose!!`;
                 }
-                else 
-                {
+                else {
                     winsCount++;
                     return `Rock beats ${cpu}! \nYou Win!!`;
                 }
             case "Paper":
-                if (cpu === "Lizard" || cpu === "Scissors")
-                {
+                if (cpu === "Lizard" || cpu === "Scissors") {
                     losesCount++;
                     return `${cpu} beats Paper!\nYou Lose!!`;
                 }
-                else 
-                {
+                else {
                     winsCount++;
                     return `Paper beats ${cpu}! \nYou Win!!`;
                 }
             case "Scissors":
-                if (cpu === "Rock" || cpu === "Spock")
-                {
+                if (cpu === "Rock" || cpu === "Spock") {
                     losesCount++;
                     return `${cpu} beats Scissors!\nYou Lose!!`;
                 }
-                else{
+                else {
                     winsCount++;
                     return `Scissors beats ${cpu}! \nYou Win!!`;
                 }
             case "Lizard":
-                if (cpu === "Rock" || cpu === "Scissors")
-                {
+                if (cpu === "Rock" || cpu === "Scissors") {
                     losesCount++;
                     return `${cpu} beats Lizard!\nYou Lose!!`;
                 }
@@ -110,13 +123,11 @@ const getWinner = (user, cpu) => {
                     return `Lizard beats ${cpu}! \nYou Win!!`;
                 }
             default:
-                if (cpu === "Lizard" || cpu === "Paper")
-                {
+                if (cpu === "Lizard" || cpu === "Paper") {
                     losesCount++;
                     return `${cpu} beats Spock!\nYou Lose!!`;
                 }
-                else 
-                {
+                else {
                     winsCount++;
                     return `${cpu} beats Spock!\nYou Lose!!`;
                 }
@@ -129,19 +140,19 @@ SelectRock.addEventListener("click", () => {
     getCPUAnswer("Rock");
 });
 
-SelectPaper.addEventListener("click", ()=>{
+SelectPaper.addEventListener("click", () => {
     console.log("Rock has been pressed!")
     getCPUAnswer("Paper");
 });
-SelectScissors.addEventListener("click", ()=>{
+SelectScissors.addEventListener("click", () => {
     console.log("Rock has been pressed!")
     getCPUAnswer("Scissors");
 });
-SelectLizard.addEventListener("click", ()=>{
+SelectLizard.addEventListener("click", () => {
     console.log("Rock has been pressed!")
     getCPUAnswer("Lizard");
 });
-SelectSpock.addEventListener("click", ()=>{
+SelectSpock.addEventListener("click", () => {
     console.log("Rock has been pressed!")
     getCPUAnswer("Spock");
 });
