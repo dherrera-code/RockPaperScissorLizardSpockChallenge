@@ -24,6 +24,8 @@ async function getCPUAnswer(user) {
     console.log(data);
     //Here I call the function to find the winner!
     let winner = getWinner(user, data);
+    userWins.textContent = `Your wins: ${winsCount}`;
+    cpuWins.textContent = `CPU wins: ${losesCount}`;
     console.log(winner);
     console.log(data)
     //Add function to display user's choice AND CPU's Choice!
@@ -35,8 +37,6 @@ const DisplayChoices = (userChoice, cpuChoice) => {
     if(userChoice === "Rock"){
         displayUserInput.src = "../Assets/Rock.png";
         displayUserInput.style = "height: 180px;"
-
-
     }
     else if(userChoice === "Paper")
         displayUserInput.src = "../Assets/Paper.png";
@@ -69,24 +69,57 @@ const getWinner = (user, cpu) => {
         switch (user) {
             case "Rock":
                 if (cpu === "Paper" || cpu === "Spock")
+                {
+                    losesCount++;
                     return `${cpu} beats Rock!\nYou Lose!!`;
-                else return `Rock beats ${cpu}! \nYou Win!!`;
+                }
+                else 
+                {
+                    winsCount++;
+                    return `Rock beats ${cpu}! \nYou Win!!`;
+                }
             case "Paper":
                 if (cpu === "Lizard" || cpu === "Scissors")
+                {
+                    losesCount++;
                     return `${cpu} beats Paper!\nYou Lose!!`;
-                else return `Paper beats ${cpu}! \nYou Win!!`;
+                }
+                else 
+                {
+                    winsCount++;
+                    return `Paper beats ${cpu}! \nYou Win!!`;
+                }
             case "Scissors":
                 if (cpu === "Rock" || cpu === "Spock")
+                {
+                    losesCount++;
                     return `${cpu} beats Scissors!\nYou Lose!!`;
-                else return `Scissors beats ${cpu}! \nYou Win!!`;
+                }
+                else{
+                    winsCount++;
+                    return `Scissors beats ${cpu}! \nYou Win!!`;
+                }
             case "Lizard":
                 if (cpu === "Rock" || cpu === "Scissors")
+                {
+                    losesCount++;
                     return `${cpu} beats Lizard!\nYou Lose!!`;
-                else return `Lizard beats ${cpu}! \nYou Win!!`;
+                }
+                else {
+                    winsCount++;
+                    return `Lizard beats ${cpu}! \nYou Win!!`;
+                }
             default:
                 if (cpu === "Lizard" || cpu === "Paper")
+                {
+                    losesCount++;
                     return `${cpu} beats Spock!\nYou Lose!!`;
-                else return `Spock beats ${cpu}! \nYou Win!!`;
+                }
+                else 
+                {
+                    winsCount++;
+                    return `${cpu} beats Spock!\nYou Lose!!`;
+                }
         }
     }
 }
