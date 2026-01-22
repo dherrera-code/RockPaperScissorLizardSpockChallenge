@@ -7,3 +7,14 @@ body{
 .Caveat{
     font-family: Caveat;
 }
+.chakra-petch-regular{
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.catamaran{
+  font-family: "Catamaran", sans-serif;
+  font-optical-sizing: auto;
+  
+  font-style: normal;
+}
