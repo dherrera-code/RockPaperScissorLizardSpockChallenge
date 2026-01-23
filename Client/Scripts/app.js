@@ -155,7 +155,7 @@ function checkGameActive() {
         isGameActive = false;
         // console.log(isGameActive);
         const newButton = document.createElement('button');
-        newButton.textContent = "Play Again?";
+        newButton.textContent = "Play Again";
         newButton.className = "btn btn-primary ms-auto";
         newButton.style = "width: 380px; height: 70px; font-size: 40px;"
         newButton.addEventListener(("click"), () => {
