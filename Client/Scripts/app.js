@@ -19,6 +19,7 @@ const isPlayerOrCPU = document.getElementById("isPlayerOrCPU")
 
 let winsCount = 0;
 let losesCount = 0;
+let max_wins;
 
 async function getCPUAnswer(user) {
     const response = await fetch(apiLink);
@@ -158,4 +159,34 @@ SelectLizard.addEventListener("click", () => {
 SelectSpock.addEventListener("click", () => {
     console.log("Rock has been pressed!")
     getCPUAnswer("Spock");
+
 });
+
+window.addEventListener("load", () => {
+    const mode = sessionStorage.getItem("currentMode");
+    const challenger = sessionStorage.getItem("cpuOrPlayer")
+    if(mode != null){
+        console.log(mode);
+        console.log(challenger);
+        //Pass these variables into a new function to start the game!
+    }
+    else{
+        console.log("No mode is selected!")
+    }
+})
+const StartFunction = (mode, challenger) => {
+    if(challenger === "CPU")
+    {
+        //test for mode then create a loop to enact the mode then call the CPU function!
+        if(mode === "One Round Showdown"){
+            max_wins = 1;
+        }
+        else if(mode === "Out of 5"){
+            max_wins = 3;
+        }
+        else{
+            max_wins = 4;
+        }
+        //call the function to run the round then test both players scores to check if a player reaches the max_wins to Win the overall game!
+    }
+}
