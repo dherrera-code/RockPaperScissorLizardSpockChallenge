@@ -25,6 +25,7 @@ let player1Wins = 0;
 let player2Wins = 0;
 let max_wins;
 let challenger;
+let mode;
 
 // async function getCPUAnswer(user) {
 //     const response = await fetch(apiLink);
@@ -152,11 +153,11 @@ const getWinner = (playerOne, playerTwo) => {
 function checkGameActive() {
     if (!(player1Wins < max_wins) || !(player2Wins < max_wins)) {
         console.log("Display the Winner!");
-        if(player1Wins >= max_wins){
-            playerTurn.textContent ="Player 1 Wins!!"
+        if (player1Wins >= max_wins) {
+            playerTurn.textContent = "Player 1 Wins!!"
         }
-        else{
-            if(challenger === "CPU"){
+        else {
+            if (challenger === "CPU") {
                 playerTurn.textContent = "CPU Wins!!"
             }
             else playerTurn.textContent = "Player 2 Wins!!"
@@ -165,6 +166,23 @@ function checkGameActive() {
         console.log(isGameActive);
         const newButton = document.createElement('button');
         newButton.textContent = "Play Again?";
+        // newButton.addEventListener(("click", () => {
+        //     mode = sessionStorage.getItem("currentMode");
+        //     challenger = sessionStorage.getItem("cpuOrPlayer")
+        //     if (mode != null) {
+        //         console.log(mode);
+        //         console.log(challenger);
+        //         //Pass these variables into a new function to start the game!
+        //         if (challenger === "CPU") {
+        //             isGameActive = true;
+        //             console.log(isGameActive)
+        //             StartCPUGame(mode)
+        //         }
+        //     }
+        //     else {
+        //         console.log("No mode is selected!")
+        //     }
+        // }))
         restartBtn.appendChild(newButton);
 
     }
@@ -172,7 +190,7 @@ function checkGameActive() {
 
 SelectRock.addEventListener("click", async () => {
     console.log("Rock has been pressed!")
-    if(isGameActive){
+    if (isGameActive) {
         cpuAnswer = await getCPUAnswer();
         console.log(cpuAnswer);
         // console.log(getWinner("Rock",cpuAnswer));
@@ -186,7 +204,7 @@ SelectRock.addEventListener("click", async () => {
 });
 SelectPaper.addEventListener("click", async () => {
     console.log("Paper has been pressed!")
-    if(isGameActive){
+    if (isGameActive) {
         cpuAnswer = await getCPUAnswer();
         console.log(cpuAnswer);
         // console.log(getWinner("Rock",cpuAnswer));
@@ -200,7 +218,7 @@ SelectPaper.addEventListener("click", async () => {
 });
 SelectScissors.addEventListener("click", async () => {
     console.log("Scissors has been pressed!")
-    if(isGameActive){
+    if (isGameActive) {
         cpuAnswer = await getCPUAnswer();
         console.log(cpuAnswer);
         // console.log(getWinner("Rock",cpuAnswer));
@@ -214,7 +232,7 @@ SelectScissors.addEventListener("click", async () => {
 });
 SelectLizard.addEventListener("click", async () => {
     console.log("Lizard has been pressed!")
-    if(isGameActive){
+    if (isGameActive) {
         cpuAnswer = await getCPUAnswer();
         console.log(cpuAnswer);
         // console.log(getWinner("Rock",cpuAnswer));
@@ -228,7 +246,7 @@ SelectLizard.addEventListener("click", async () => {
 });
 SelectSpock.addEventListener("click", async () => {
     console.log("Spock has been pressed!")
-    if(isGameActive){
+    if (isGameActive) {
         cpuAnswer = await getCPUAnswer();
         console.log(cpuAnswer);
         // console.log(getWinner("Rock",cpuAnswer));
@@ -241,8 +259,9 @@ SelectSpock.addEventListener("click", async () => {
     }
 });
 
+
 window.addEventListener("load", () => {
-    const mode = sessionStorage.getItem("currentMode");
+    mode = sessionStorage.getItem("currentMode");
     challenger = sessionStorage.getItem("cpuOrPlayer")
     if (mode != null) {
         console.log(mode);
