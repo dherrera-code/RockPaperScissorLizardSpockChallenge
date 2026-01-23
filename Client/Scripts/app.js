@@ -4,39 +4,50 @@ const SelectRock = document.getElementById("SelectRock");
 const SelectPaper = document.getElementById("SelectPaper");
 const SelectScissors = document.getElementById("SelectScissors");
 const SelectLizard = document.getElementById("SelectLizard");
-const SelectSpock = document.getElementById("SelectSpock")
+const SelectSpock = document.getElementById("SelectSpock");
 
 const displayPlayerOne = document.getElementById("displayPlayerOne")
 const displayPlayerTwo = document.getElementById("displayPlayerTwo");
 
 const displayResults = document.getElementById("displayResults");
+const playerTurn = document.getElementById("playerTurn");
 
 const userWins = document.getElementById("userWins");
 const cpuWins = document.getElementById("cpuWins");
 
 // New variables
-const isPlayerOrCPU = document.getElementById("isPlayerOrCPU")
+const isPlayerOrCPU = document.getElementById("isPlayerOrCPU");
+const restartBtn = document.getElementById("restartBtn");
 
-let winsCount = 0;
-let losesCount = 0;
+let isGameActive;
+let cpuAnswer;
+let player1Wins = 0;
+let player2Wins = 0;
 let max_wins;
+let challenger;
 
-async function getCPUAnswer(user) {
+// async function getCPUAnswer(user) {
+//     const response = await fetch(apiLink);
+//     const data = await response.text();
+//     console.log(data);
+//     //Here I call the function to find the winner!
+//     let winner = getWinner(user, data);
+//     userWins.textContent = `Your wins: ${player1Wins}`;
+//     cpuWins.textContent = `CPU wins: ${player2Wins}`;
+//     console.log(winner);
+//     console.log(data)
+//     //Add function to display user's choice AND CPU's Choice!
+//     DisplayChoices(user, data);
+//     displayResults.textContent = winner
+//     return winner;
+// }
+async function getCPUAnswer() {
     const response = await fetch(apiLink);
-    const data = await response.text();
-    console.log(data);
-    //Here I call the function to find the winner!
-    let winner = getWinner(user, data);
-    userWins.textContent = `Your wins: ${winsCount}`;
-    cpuWins.textContent = `CPU wins: ${losesCount}`;
-    console.log(winner);
-    console.log(data)
-    //Add function to display user's choice AND CPU's Choice!
-    DisplayChoices(user, data);
-    displayResults.textContent = winner
-    return winner;
+    return await response.text();
 }
-// Only call this function when both choices 
+
+
+// Only call this function when both choices have been made!
 const DisplayChoices = (playerOne, playerTwo) => {
     if (playerOne === "Rock") {
         displayPlayerOne.src = "../Assets/Rock.png";
@@ -83,110 +94,182 @@ const DisplayChoices = (playerOne, playerTwo) => {
 
 //add event listeners for all select elements and create a function that test for the winner!
 //a function that will return the results of the game!
-const getWinner = (user, cpu) => {
-    console.log("GetWinner is Evoked!" + cpu)
-    if (user === cpu) {
+const getWinner = (playerOne, playerTwo) => {
+    console.log("GetWinner is Evoked!" + playerTwo)
+    if (playerOne === playerTwo) {
         return "It's a tie!\nTry Again!";
     }
     else {
-        switch (user) {
+        switch (playerOne) {
             case "Rock":
-                if (cpu === "Paper" || cpu === "Spock") {
-                    losesCount++;
-                    return `${cpu} beats Rock!\nYou Lose!!`;
+                if (playerTwo === "Paper" || playerTwo === "Spock") {
+                    player2Wins++;
+                    return `${playerTwo} beats Rock!\nPlayer Two Wins!!`;
                 }
                 else {
-                    winsCount++;
-                    return `Rock beats ${cpu}! \nYou Win!!`;
+                    player1Wins++;
+                    return `Rock beats ${playerTwo}! \nPlayer One Wins!!`;
                 }
             case "Paper":
-                if (cpu === "Lizard" || cpu === "Scissors") {
-                    losesCount++;
-                    return `${cpu} beats Paper!\nYou Lose!!`;
+                if (playerTwo === "Lizard" || playerTwo === "Scissors") {
+                    player2Wins++;
+                    return `${playerTwo} beats Paper!\nPlayer Two Wins!!`;
                 }
                 else {
-                    winsCount++;
-                    return `Paper beats ${cpu}! \nYou Win!!`;
+                    player1Wins++;
+                    return `Paper beats ${playerTwo}! \nPlayer One Wins!!`;
                 }
             case "Scissors":
-                if (cpu === "Rock" || cpu === "Spock") {
-                    losesCount++;
-                    return `${cpu} beats Scissors!\nYou Lose!!`;
+                if (playerTwo === "Rock" || playerTwo === "Spock") {
+                    player2Wins++;
+                    return `${playerTwo} beats Scissors!\nPlayer Two Wins!!`;
                 }
                 else {
-                    winsCount++;
-                    return `Scissors beats ${cpu}! \nYou Win!!`;
+                    player1Wins++;
+                    return `Scissors beats ${playerTwo}! \nPlayer One Wins!!`;
                 }
             case "Lizard":
-                if (cpu === "Rock" || cpu === "Scissors") {
-                    losesCount++;
-                    return `${cpu} beats Lizard!\nYou Lose!!`;
+                if (playerTwo === "Rock" || playerTwo === "Scissors") {
+                    player2Wins++;
+                    return `${playerTwo} beats Lizard!\nPlayer Two Wins!!`;
                 }
                 else {
-                    winsCount++;
-                    return `Lizard beats ${cpu}! \nYou Win!!`;
+                    player1Wins++;
+                    return `Lizard beats ${playerTwo}! \nPlayer One Wins!!`;
                 }
             default:
-                if (cpu === "Lizard" || cpu === "Paper") {
-                    losesCount++;
-                    return `${cpu} beats Spock!\nYou Lose!!`;
+                if (playerTwo === "Lizard" || playerTwo === "Paper") {
+                    player2Wins++;
+                    return `${playerTwo} beats Spock!\nPlayer Two Wins!!`;
                 }
                 else {
-                    winsCount++;
-                    return `${cpu} beats Spock!\nYou Lose!!`;
+                    player1Wins++;
+                    return `Spock beats ${playerTwo}!\nPlayer One Wins!!`;
                 }
         }
     }
 }
+function checkGameActive() {
+    if (!(player1Wins < max_wins) || !(player2Wins < max_wins)) {
+        console.log("Display the Winner!");
+        if(player1Wins >= max_wins){
+            playerTurn.textContent ="Player 1 Wins!!"
+        }
+        else{
+            if(challenger === "CPU"){
+                playerTurn.textContent = "CPU Wins!!"
+            }
+            else playerTurn.textContent = "Player 2 Wins!!"
+        }
+        isGameActive = false;
+        console.log(isGameActive);
+        const newButton = document.createElement('button');
+        newButton.textContent = "Play Again?";
+        restartBtn.appendChild(newButton);
 
+    }
+}
 
-SelectRock.addEventListener("click", () => {
+SelectRock.addEventListener("click", async () => {
     console.log("Rock has been pressed!")
-    getCPUAnswer("Rock");
+    if(isGameActive){
+        cpuAnswer = await getCPUAnswer();
+        console.log(cpuAnswer);
+        // console.log(getWinner("Rock",cpuAnswer));
+        let winner = getWinner("Rock", cpuAnswer);
+        DisplayChoices("Rock", cpuAnswer);
+        userWins.textContent = `Your wins: ${player1Wins}`;
+        cpuWins.textContent = `CPU wins: ${player2Wins}`;
+        displayResults.textContent = winner;
+        checkGameActive()
+    }
 });
-SelectPaper.addEventListener("click", () => {
-    console.log("Rock has been pressed!")
-    getCPUAnswer("Paper");
+SelectPaper.addEventListener("click", async () => {
+    console.log("Paper has been pressed!")
+    if(isGameActive){
+        cpuAnswer = await getCPUAnswer();
+        console.log(cpuAnswer);
+        // console.log(getWinner("Rock",cpuAnswer));
+        let winner = getWinner("Paper", cpuAnswer);
+        DisplayChoices("Paper", cpuAnswer);
+        userWins.textContent = `Your wins: ${player1Wins}`;
+        cpuWins.textContent = `CPU wins: ${player2Wins}`;
+        displayResults.textContent = winner;
+        checkGameActive()
+    }
 });
-SelectScissors.addEventListener("click", () => {
-    console.log("Rock has been pressed!")
-    getCPUAnswer("Scissors");
+SelectScissors.addEventListener("click", async () => {
+    console.log("Scissors has been pressed!")
+    if(isGameActive){
+        cpuAnswer = await getCPUAnswer();
+        console.log(cpuAnswer);
+        // console.log(getWinner("Rock",cpuAnswer));
+        let winner = getWinner("Scissors", cpuAnswer);
+        DisplayChoices("Scissors", cpuAnswer);
+        userWins.textContent = `Your wins: ${player1Wins}`;
+        cpuWins.textContent = `CPU wins: ${player2Wins}`;
+        displayResults.textContent = winner;
+        checkGameActive()
+    }
 });
-SelectLizard.addEventListener("click", () => {
-    console.log("Rock has been pressed!")
-    getCPUAnswer("Lizard");
+SelectLizard.addEventListener("click", async () => {
+    console.log("Lizard has been pressed!")
+    if(isGameActive){
+        cpuAnswer = await getCPUAnswer();
+        console.log(cpuAnswer);
+        // console.log(getWinner("Rock",cpuAnswer));
+        let winner = getWinner("Lizard", cpuAnswer);
+        DisplayChoices("Lizard", cpuAnswer);
+        userWins.textContent = `Your wins: ${player1Wins}`;
+        cpuWins.textContent = `CPU wins: ${player2Wins}`;
+        displayResults.textContent = winner;
+        checkGameActive()
+    }
 });
-SelectSpock.addEventListener("click", () => {
-    console.log("Rock has been pressed!")
-    getCPUAnswer("Spock");
-
+SelectSpock.addEventListener("click", async () => {
+    console.log("Spock has been pressed!")
+    if(isGameActive){
+        cpuAnswer = await getCPUAnswer();
+        console.log(cpuAnswer);
+        // console.log(getWinner("Rock",cpuAnswer));
+        let winner = getWinner("Spock", cpuAnswer);
+        DisplayChoices("Spock", cpuAnswer);
+        userWins.textContent = `Your wins: ${player1Wins}`;
+        cpuWins.textContent = `CPU wins: ${player2Wins}`;
+        displayResults.textContent = winner;
+        checkGameActive()
+    }
 });
 
 window.addEventListener("load", () => {
     const mode = sessionStorage.getItem("currentMode");
-    const challenger = sessionStorage.getItem("cpuOrPlayer")
-    if(mode != null){
+    challenger = sessionStorage.getItem("cpuOrPlayer")
+    if (mode != null) {
         console.log(mode);
         console.log(challenger);
         //Pass these variables into a new function to start the game!
+        if (challenger === "CPU") {
+            isGameActive = true;
+            console.log(isGameActive)
+            StartCPUGame(mode)
+        }
     }
-    else{
+    else {
         console.log("No mode is selected!")
     }
 })
-const StartFunction = (mode, challenger) => {
-    if(challenger === "CPU")
-    {
-        //test for mode then create a loop to enact the mode then call the CPU function!
-        if(mode === "One Round Showdown"){
-            max_wins = 1;
-        }
-        else if(mode === "Out of 5"){
-            max_wins = 3;
-        }
-        else{
-            max_wins = 4;
-        }
-        //call the function to run the round then test both players scores to check if a player reaches the max_wins to Win the overall game!
+const StartCPUGame = (mode) => {
+    //test for mode then create a loop to enact the mode then call the CPU function!
+    if (mode === "One Round Showdown") {
+        max_wins = 1;
     }
+    else if (mode === "Out of Five") {
+        max_wins = 3;
+    }
+    else {
+        max_wins = 4;
+    }
+    console.log(max_wins);
+    player1Wins = 0;
+    player2Wins = 0;
 }
