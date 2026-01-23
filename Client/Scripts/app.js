@@ -32,26 +32,11 @@ let mode;
 //variables Used for PVP mode!
 let firstPlayerChoice = null;
 let secondPlayerChoice = null;
-// async function getCPUAnswer(user) {
-//     const response = await fetch(apiLink);
-//     const data = await response.text();
-//     console.log(data);
-//     //Here I call the function to find the winner!
-//     let winner = getWinner(user, data);
-//     userWins.textContent = `Your wins: ${player1Wins}`;
-//     cpuWins.textContent = `CPU wins: ${player2Wins}`;
-//     console.log(winner);
-//     console.log(data)
-//     //Add function to display user's choice AND CPU's Choice!
-//     DisplayChoices(user, data);
-//     displayResults.textContent = winner
-//     return winner;
-// }
+
 async function getCPUAnswer() {
     const response = await fetch(apiLink);
     return await response.text();
 }
-
 
 // Only call this function when both choices have been made!
 const DisplayChoices = (playerOne, playerTwo) => {
@@ -97,7 +82,6 @@ const DisplayChoices = (playerOne, playerTwo) => {
         displayPlayerTwo.style = "height: 230px";
     }
 }
-
 //add event listeners for all select elements and create a function that test for the winner!
 //a function that will return the results of the game!
 const getWinner = (playerOne, playerTwo) => {
@@ -170,10 +154,9 @@ function checkGameActive() {
         }
         isGameActive = false;
         // console.log(isGameActive);
-
         const newButton = document.createElement('button');
         newButton.textContent = "Play Again?";
-        newButton.className = "btn btn-info ms-auto";
+        newButton.className = "btn btn-primary ms-auto";
         newButton.style = "width: 380px; height: 70px; font-size: 40px;"
         newButton.addEventListener(("click"), () => {
 
@@ -217,7 +200,7 @@ function CheckPvp(choice) {
         userWins.textContent = `Player One wins: ${player1Wins}`;
         cpuWins.textContent = `Player Two wins: ${player2Wins}`;
         displayResults.textContent = winner;
-        checkGameActive()
+        checkGameActive();
         firstPlayerChoice = null;
         secondPlayerChoice = null;
     }
@@ -255,7 +238,7 @@ SelectPaper.addEventListener("click", async () => {
         checkGameActive()
     }
     else if (isGameActive && challenger === "Player") CheckPvp("Paper")
-    
+
 });
 SelectScissors.addEventListener("click", async () => {
     console.log("Scissors has been pressed!")
