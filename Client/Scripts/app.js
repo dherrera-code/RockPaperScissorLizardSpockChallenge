@@ -138,11 +138,11 @@ const getWinner = (user, cpu) => {
     }
 }
 
+
 SelectRock.addEventListener("click", () => {
     console.log("Rock has been pressed!")
     getCPUAnswer("Rock");
 });
-
 SelectPaper.addEventListener("click", () => {
     console.log("Rock has been pressed!")
     getCPUAnswer("Paper");

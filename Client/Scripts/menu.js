@@ -1,3 +1,4 @@
+
 const optionsModal = document.getElementById("optionsModal");
 const modeOptions = new bootstrap.Modal(optionsModal);
 
@@ -11,11 +12,11 @@ const playCpuBtn = document.getElementById("playCpuBtn");
 playCpuBtn.addEventListener(('click'), () => {
     modeOptions.show();
 })
+// playCpuBtn.addEventListener(("click", () => modeOptions.show()))
 
 playPvpBtn.addEventListener("click", () => {
     modeOptions.show();
 })
-
 
 oneRoundBtn.addEventListener("click", () => {
 
