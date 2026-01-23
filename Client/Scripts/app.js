@@ -14,6 +14,16 @@ const displayResults = document.getElementById("displayResults");
 const userWins = document.getElementById("userWins");
 const cpuWins = document.getElementById("cpuWins");
 
+const optionsModal = document.getElementById("optionsModal");
+const modeOptions = new bootstrap.Modal(optionsModal);
+
+const playPvpBtn = document.getElementById("playPvpBtn");
+const playCpuBtn = document.getElementById("playCpuBtn");
+
+playCpuBtn.addEventListener(('click'), () => {
+
+    modeOptions.show();
+})
 
 let winsCount = 0;
 let losesCount = 0;
