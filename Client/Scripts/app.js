@@ -6,24 +6,16 @@ const SelectScissors = document.getElementById("SelectScissors");
 const SelectLizard = document.getElementById("SelectLizard");
 const SelectSpock = document.getElementById("SelectSpock")
 
-const displayUserInput = document.getElementById("displayUserInput")
-const displayCPUInput = document.getElementById("displayCPUInput");
+const displayPlayerOne = document.getElementById("displayPlayerOne")
+const displayPlayerTwo = document.getElementById("displayPlayerTwo");
 
 const displayResults = document.getElementById("displayResults");
 
 const userWins = document.getElementById("userWins");
 const cpuWins = document.getElementById("cpuWins");
 
-const optionsModal = document.getElementById("optionsModal");
-const modeOptions = new bootstrap.Modal(optionsModal);
-
-const playPvpBtn = document.getElementById("playPvpBtn");
-const playCpuBtn = document.getElementById("playCpuBtn");
-
-playCpuBtn.addEventListener(('click'), () => {
-
-    modeOptions.show();
-})
+// New variables
+const isPlayerOrCPU = document.getElementById("isPlayerOrCPU")
 
 let winsCount = 0;
 let losesCount = 0;
@@ -43,47 +35,48 @@ async function getCPUAnswer(user) {
     displayResults.textContent = winner
     return winner;
 }
-const DisplayChoices = (userChoice, cpuChoice) => {
-    if (userChoice === "Rock") {
-        displayUserInput.src = "../Assets/Rock.png";
-        displayUserInput.style = "height: 180px;"
+// Only call this function when both choices 
+const DisplayChoices = (playerOne, playerTwo) => {
+    if (playerOne === "Rock") {
+        displayPlayerOne.src = "../Assets/Rock.png";
+        displayPlayerOne.style = "height: 180px;"
     }
-    else if (userChoice === "Paper") {
-        displayUserInput.src = "../Assets/Paper.png";
-        displayUserInput.style = "height: 173px";
+    else if (playerOne === "Paper") {
+        displayPlayerOne.src = "../Assets/Paper.png";
+        displayPlayerOne.style = "height: 173px";
     }
-    else if (userChoice === "Scissors") {
-        displayUserInput.src = "../Assets/Scissors.png";
-        displayUserInput.style = "height: 160px";
+    else if (playerOne === "Scissors") {
+        displayPlayerOne.src = "../Assets/Scissors.png";
+        displayPlayerOne.style = "height: 160px";
     }
-    else if (userChoice === "Lizard") {
-        displayUserInput.src = "../Assets/Lizard.png";
-        displayUserInput.style = "height: 173px";
+    else if (playerOne === "Lizard") {
+        displayPlayerOne.src = "../Assets/Lizard.png";
+        displayPlayerOne.style = "height: 173px";
     }
     else {
-        displayUserInput.src = "../Assets/Spock.png"
-        displayUserInput.style = "height: 230px";
+        displayPlayerOne.src = "../Assets/Spock.png"
+        displayPlayerOne.style = "height: 230px";
     }
 
-    if (cpuChoice === "Rock") {
-        displayCPUInput.src = "../Assets/Rock.png";
-        displayCPUInput.style = "height: 180px;"
+    if (playerTwo === "Rock") {
+        displayPlayerTwo.src = "../Assets/Rock.png";
+        displayPlayerTwo.style = "height: 180px;"
     }
-    else if (cpuChoice === "Paper") {
-        displayCPUInput.src = "../Assets/Paper.png";
-        displayCPUInput.style = "height: 173px";
+    else if (playerTwo === "Paper") {
+        displayPlayerTwo.src = "../Assets/Paper.png";
+        displayPlayerTwo.style = "height: 173px";
     }
-    else if (cpuChoice === "Scissors") {
-        displayCPUInput.src = "../Assets/Scissors.png";
-        displayCPUInput.style = "height: 160px";
+    else if (playerTwo === "Scissors") {
+        displayPlayerTwo.src = "../Assets/Scissors.png";
+        displayPlayerTwo.style = "height: 160px";
     }
-    else if (cpuChoice === "Lizard") {
-        displayCPUInput.src = "../Assets/Lizard.png";
-        displayCPUInput.style = "height: 173px";
+    else if (playerTwo === "Lizard") {
+        displayPlayerTwo.src = "../Assets/Lizard.png";
+        displayPlayerTwo.style = "height: 173px";
     }
     else {
-        displayCPUInput.src = "../Assets/Spock.png";
-        displayCPUInput.style = "height: 230px";
+        displayPlayerTwo.src = "../Assets/Spock.png";
+        displayPlayerTwo.style = "height: 230px";
     }
 }
 

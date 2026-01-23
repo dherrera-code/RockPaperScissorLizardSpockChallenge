@@ -16,33 +16,44 @@
 </head>
 
 <body>
-    <h1 class="text-center Caveat" style="font-size: 48px; margin-top: 80px; margin-bottom: 30px;">Please Select Your
-        Guess!</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col d-block text-center">
-                <img id="SelectRock" class="img-fluid" src="../Assets/Rock.png" alt="Rock!">
+    <header>
+        <h1 class="text-center Caveat" style="font-size: 48px; margin-top: 80px; margin-bottom: 30px;">Please Select
+            Your
+            Guess!</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col d-block text-center">
+                    <img id="SelectRock" class="img-fluid" src="../Assets/Rock.png" alt="Rock!">
+                </div>
+                <div class="col text-center">
+                    <img id="SelectPaper" class="img-fluid" src="../Assets/Paper.png" alt="Paper">
+                </div>
+                <div class="col text-center">
+                    <img id="SelectScissors" class="img-fluid" src="../Assets/Scissors.png" alt="">
+                </div>
+                <div class="col text-center">
+                    <img id="SelectLizard" class="img-fluid" src="../Assets/Lizard.png" alt="Lizard!">
+                </div>
+                <div class="col text-center">
+                    <img id="SelectSpock" class="img-fluid" src="../Assets/Spock.png" alt="Spock!">
+                </div>
             </div>
-            <div class="col text-center">
-                <img id="SelectPaper" class="img-fluid" src="../Assets/Paper.png" alt="Paper">
-            </div>
-            <div class="col text-center">
-                <img id="SelectScissors" class="img-fluid" src="../Assets/Scissors.png" alt="">
-            </div>
-            <div class="col text-center">
-                <img id="SelectLizard" class="img-fluid" src="../Assets/Lizard.png" alt="Lizard!">
-            </div>
-            <div class="col text-center">
-                <img id="SelectSpock" class="img-fluid" src="../Assets/Spock.png" alt="Spock!">
+            <div class="row d-flex justify-content-center">
+                <div class="col-4">
+                    <h2 class="text-center">Player 1</h2>
+                </div>
+                <div class="col-4">
+                    <h2 class="text-center" id="isPlayerOrCPU">Player 2/CPU</h2>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
 
     <div class="container">
         <div class="row mt-5" style="min-height: 230px;">
             <div class="col">
                 <div>
-                    <img class="ms-auto d-block" src="" id="displayUserInput">
+                    <img class="ms-auto d-block" src="" id="displayPlayerOne">
                 </div>
             </div>
             <div class="col-2">
@@ -50,7 +61,7 @@
             </div>
             <div class="col">
                 <div>
-                    <img class="me-auto d-block" style="height: 180px;" id="displayCPUInput" src="">
+                    <img class="me-auto d-block" style="height: 180px;" id="displayPlayerTwo" src="">
                 </div>
             </div>
         </div>
