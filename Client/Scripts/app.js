@@ -169,8 +169,8 @@ function checkGameActive() {
                 else if (challenger === "Player") {
                     isPlayerOrCPU.textContent = "Player 2";
                     StartGame(mode)
-                    userWins.textContent = "Player One wins: 0";
-                    cpuWins.textContent = "Player Two wins: 0";
+                    userWins.textContent = "Player 1 wins: 0";
+                    cpuWins.textContent = "Player 2 wins: 0";
                     //Function to start PVP Game
                 }
 
@@ -196,8 +196,8 @@ function CheckPvp(choice) {
         //then test for the winner!
         let winner = getWinner(firstPlayerChoice, secondPlayerChoice);
         DisplayChoices(firstPlayerChoice, secondPlayerChoice);
-        userWins.textContent = `Player One wins: ${player1Wins}`;
-        cpuWins.textContent = `Player Two wins: ${player2Wins}`;
+        userWins.textContent = `Player 1 wins: ${player1Wins}`;
+        cpuWins.textContent = `Player 2 wins: ${player2Wins}`;
         displayResults.textContent = winner;
         checkGameActive();
         firstPlayerChoice = null;
@@ -319,8 +319,8 @@ window.addEventListener("load", () => {
         }
         else if (challenger === "Player") {
             isPlayerOrCPU.textContent = "Player 2";
-            userWins.textContent = "Player One Wins: 0";
-            cpuWins.textContent = "Player Two Wins: 0";
+            userWins.textContent = "Player 1 Wins: 0";
+            cpuWins.textContent = "Player 2 Wins: 0";
             //Function to start PVP Game
             StartGame(mode)
         }
