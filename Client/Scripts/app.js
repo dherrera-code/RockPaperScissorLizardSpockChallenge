@@ -30,6 +30,8 @@ let mode;
 let firstPlayerChoice = null;
 let secondPlayerChoice = null;
 
+let isButtonActive = true;
+
 async function getCPUAnswer() {
     const response = await fetch(apiLink);
     return await response.text();
@@ -197,66 +199,122 @@ function CheckPvp(choice) {
 }
 
 SelectRock.addEventListener("click", async () => {
-    if (isGameActive && challenger === "CPU") {
-        cpuAnswer = await getCPUAnswer();
-        let winner = getWinner("Rock", cpuAnswer);
-        DisplayChoices("Rock", cpuAnswer);
-        userWins.textContent = `Your wins: ${player1Wins}`;
-        cpuWins.textContent = `CPU wins: ${player2Wins}`;
-        displayResults.textContent = winner;
-        checkGameActive()
+    if(!isButtonActive){
+        console.log("Button is inactive!")
     }
-    else if (isGameActive && challenger === "Player") CheckPvp("Rock");
+    else{
+        !isButtonActive;
+        if (isGameActive && challenger === "CPU") {
+            cpuAnswer = await getCPUAnswer();
+            let winner = getWinner("Rock", cpuAnswer);
+            DisplayChoices("Rock", cpuAnswer);
+            userWins.textContent = `Your wins: ${player1Wins}`;
+            cpuWins.textContent = `CPU wins: ${player2Wins}`;
+            displayResults.textContent = winner;
+            checkGameActive()
+        }
+        else if (isGameActive && challenger === "Player") CheckPvp("Rock");
+
+        !isButtonActive;
+    }
+    console.log(isButtonActive);
 });
 SelectPaper.addEventListener("click", async () => {
-    if (isGameActive && challenger === "CPU") {
-        cpuAnswer = await getCPUAnswer();
-        let winner = getWinner("Paper", cpuAnswer);
-        DisplayChoices("Paper", cpuAnswer);
-        userWins.textContent = `Your wins: ${player1Wins}`;
-        cpuWins.textContent = `CPU wins: ${player2Wins}`;
-        displayResults.textContent = winner;
-        checkGameActive()
+    if(!isButtonActive){
+        console.log("Button is inactive!")
     }
-    else if (isGameActive && challenger === "Player") CheckPvp("Paper")
+    else{
+        !isButtonActive;
+        if (isGameActive && challenger === "CPU") {
+            cpuAnswer = await getCPUAnswer();
+            let winner = getWinner("Paper", cpuAnswer);
+            DisplayChoices("Paper", cpuAnswer);
+            userWins.textContent = `Your wins: ${player1Wins}`;
+            cpuWins.textContent = `CPU wins: ${player2Wins}`;
+            displayResults.textContent = winner;
+            checkGameActive()
+        }
+        else if (isGameActive && challenger === "Player") CheckPvp("Paper")
+
+            !isButtonActive;
+        }
+    console.log(isButtonActive);
 
 });
 SelectScissors.addEventListener("click", async () => {
-    if (isGameActive && challenger === "CPU") {
-        cpuAnswer = await getCPUAnswer();
-        let winner = getWinner("Scissors", cpuAnswer);
-        DisplayChoices("Scissors", cpuAnswer);
-        userWins.textContent = `Your wins: ${player1Wins}`;
-        cpuWins.textContent = `CPU wins: ${player2Wins}`;
-        displayResults.textContent = winner;
-        checkGameActive()
+
+    if(!isButtonActive){
+        console.log("Button is inactive!")
+    }else{
+            !isButtonActive;
+        
+        
+        if (isGameActive && challenger === "CPU") {
+            cpuAnswer = await getCPUAnswer();
+            let winner = getWinner("Scissors", cpuAnswer);
+            DisplayChoices("Scissors", cpuAnswer);
+            userWins.textContent = `Your wins: ${player1Wins}`;
+            cpuWins.textContent = `CPU wins: ${player2Wins}`;
+            displayResults.textContent = winner;
+            checkGameActive()
+        }
+        else if (isGameActive && challenger === "Player") CheckPvp("Scissors");
+        
+            !isButtonActive;
+        
     }
-    else if (isGameActive && challenger === "Player") CheckPvp("Scissors");
+    console.log(isButtonActive);
 
 });
 SelectLizard.addEventListener("click", async () => {
-    if (isGameActive && challenger === "CPU") {
-        cpuAnswer = await getCPUAnswer();
-        let winner = getWinner("Lizard", cpuAnswer);
-        DisplayChoices("Lizard", cpuAnswer);
-        userWins.textContent = `Your wins: ${player1Wins}`;
+
+    if(!isButtonActive){
+        console.log("Button is inactive!")
+    }else{
+            !isButtonActive;
+
+        
+        if (isGameActive && challenger === "CPU") {
+            cpuAnswer = await getCPUAnswer();
+            let winner = getWinner("Lizard", cpuAnswer);
+            DisplayChoices("Lizard", cpuAnswer);
+            userWins.textContent = `Your wins: ${player1Wins}`;
         cpuWins.textContent = `CPU wins: ${player2Wins}`;
         displayResults.textContent = winner;
         checkGameActive()
     }
     else if (isGameActive && challenger === "Player") CheckPvp("Lizard");
+    
+            !isButtonActive;
+
+}
+    console.log(isButtonActive);
+
 });
 SelectSpock.addEventListener("click", async () => {
-    if (isGameActive && challenger === "CPU") {
-        cpuAnswer = await getCPUAnswer();
-        let winner = getWinner("Spock", cpuAnswer);
-        DisplayChoices("Spock", cpuAnswer);
-        userWins.textContent = `Your wins: ${player1Wins}`;
-        cpuWins.textContent = `CPU wins: ${player2Wins}`;
-        displayResults.textContent = winner;
-        checkGameActive()
+
+    if(!isButtonActive){
+        console.log("Button is inactive!")
     }
-    else if (isGameActive && challenger === "Player") CheckPvp("Spock")
+    else{
+            !isButtonActive;
+
+        if (isGameActive && challenger === "CPU") {
+            cpuAnswer = await getCPUAnswer();
+            let winner = getWinner("Spock", cpuAnswer);
+            DisplayChoices("Spock", cpuAnswer);
+            userWins.textContent = `Your wins: ${player1Wins}`;
+            cpuWins.textContent = `CPU wins: ${player2Wins}`;
+            displayResults.textContent = winner;
+            checkGameActive()
+        }
+        else if (isGameActive && challenger === "Player") CheckPvp("Spock")
+            
+            !isButtonActive;
+            
+        }
+    console.log(isButtonActive);
+
 });
 
 
