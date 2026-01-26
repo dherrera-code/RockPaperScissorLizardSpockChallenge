@@ -92,47 +92,47 @@ const getWinner = (playerOne, playerTwo) => {
             case "Rock":
                 if (playerTwo === "Paper" || playerTwo === "Spock") {
                     player2Wins++;
-                    return `${playerTwo} beats Rock!\nPlayer Two Wins!!`;
+                    return `${playerTwo} beats Rock!\n${isPlayerOrCPU.textContent} Wins!!`;
                 }
                 else {
                     player1Wins++;
-                    return `Rock beats ${playerTwo}! \nPlayer One Wins!!`;
+                    return `Rock beats ${playerTwo}! \nPlayer 1 Wins!!`;
                 }
             case "Paper":
                 if (playerTwo === "Lizard" || playerTwo === "Scissors") {
                     player2Wins++;
-                    return `${playerTwo} beats Paper!\nPlayer Two Wins!!`;
+                    return `${playerTwo} beats Paper!\n${isPlayerOrCPU.textContent} Wins!!`;
                 }
                 else {
                     player1Wins++;
-                    return `Paper beats ${playerTwo}! \nPlayer One Wins!!`;
+                    return `Paper beats ${playerTwo}! \nPlayer 1 Wins!!`;
                 }
             case "Scissors":
                 if (playerTwo === "Rock" || playerTwo === "Spock") {
                     player2Wins++;
-                    return `${playerTwo} beats Scissors!\nPlayer Two Wins!!`;
+                    return `${playerTwo} beats Scissors!\n${isPlayerOrCPU.textContent} Wins!!`;
                 }
                 else {
                     player1Wins++;
-                    return `Scissors beats ${playerTwo}! \nPlayer One Wins!!`;
+                    return `Scissors beats ${playerTwo}! \nPlayer 1 Wins!!`;
                 }
             case "Lizard":
                 if (playerTwo === "Rock" || playerTwo === "Scissors") {
                     player2Wins++;
-                    return `${playerTwo} beats Lizard!\nPlayer Two Wins!!`;
+                    return `${playerTwo} beats Lizard!\n${isPlayerOrCPU.textContent} Wins!!`;
                 }
                 else {
                     player1Wins++;
-                    return `Lizard beats ${playerTwo}! \nPlayer One Wins!!`;
+                    return `Lizard beats ${playerTwo}! \nPlayer 1 Wins!!`;
                 }
             default:
                 if (playerTwo === "Lizard" || playerTwo === "Paper") {
                     player2Wins++;
-                    return `${playerTwo} beats Spock!\nPlayer Two Wins!!`;
+                    return `${playerTwo} beats Spock!\n${isPlayerOrCPU.textContent} Wins!!`;
                 }
                 else {
                     player1Wins++;
-                    return `Spock beats ${playerTwo}!\nPlayer One Wins!!`;
+                    return `Spock beats ${playerTwo}!\nPlayer 1 Wins!!`;
                 }
         }
     }
@@ -153,20 +153,27 @@ function checkGameActive() {
         const newButton = document.createElement('button');
         newButton.textContent = "Play Again";
         newButton.className = "btn btn-primary ms-auto game-btn";
-        newButton.addEventListener(("click"), () => {
 
+        newButton.addEventListener(("click"), () => {
             mode = sessionStorage.getItem("currentMode");
             challenger = sessionStorage.getItem("cpuOrPlayer")
             if (mode != null) {
-                // console.log(mode);
-                // console.log(challenger);
                 //Pass these variables into a new function to start the game!
                 isGameActive = true;
-                // console.log(isGameActive)
-                StartGame(mode)
+                if (challenger === "CPU") {
+                    isPlayerOrCPU.textContent = "CPU";
+                    StartGame(mode)
+                    userWins.textContent = `Your wins: ${player1Wins}`;
+                    cpuWins.textContent = `CPU wins: ${player2Wins}`;
+                }
+                else if (challenger === "Player") {
+                    isPlayerOrCPU.textContent = "Player 2";
+                    StartGame(mode)
+                    userWins.textContent = "Player One wins: 0";
+                    cpuWins.textContent = "Player Two wins: 0";
+                    //Function to start PVP Game
+                }
 
-                userWins.textContent = `Your wins: ${player1Wins}`;
-                cpuWins.textContent = `CPU wins: ${player2Wins}`;
                 playerTurn.textContent = "Go Player 1!";
                 displayPlayerOne.src = "";
                 displayPlayerTwo.src = "";
@@ -199,7 +206,7 @@ function CheckPvp(choice) {
 }
 
 SelectRock.addEventListener("click", async () => {
-    if (!isButtonActive) {}
+    if (!isButtonActive) { }
     else {
         !isButtonActive;
         if (isGameActive && challenger === "CPU") {
@@ -217,7 +224,7 @@ SelectRock.addEventListener("click", async () => {
     }
 });
 SelectPaper.addEventListener("click", async () => {
-    if (!isButtonActive) {}
+    if (!isButtonActive) { }
     else {
         !isButtonActive;
         if (isGameActive && challenger === "CPU") {
@@ -237,7 +244,7 @@ SelectPaper.addEventListener("click", async () => {
 });
 SelectScissors.addEventListener("click", async () => {
 
-    if (!isButtonActive) {} 
+    if (!isButtonActive) { }
     else {
         !isButtonActive;
 
@@ -258,7 +265,7 @@ SelectScissors.addEventListener("click", async () => {
 });
 SelectLizard.addEventListener("click", async () => {
 
-    if (!isButtonActive) {} 
+    if (!isButtonActive) { }
     else {
         !isButtonActive;
 
@@ -279,7 +286,7 @@ SelectLizard.addEventListener("click", async () => {
 });
 SelectSpock.addEventListener("click", async () => {
 
-    if (!isButtonActive) {}
+    if (!isButtonActive) { }
     else {
         !isButtonActive;
 
@@ -305,14 +312,15 @@ window.addEventListener("load", () => {
     challenger = sessionStorage.getItem("cpuOrPlayer")
     if (mode != null) {
         //Pass these variables into a new function to start the game!
+        isGameActive = true;
         if (challenger === "CPU") {
-            isGameActive = true;
             isPlayerOrCPU.textContent = "CPU";
             StartGame(mode)
         }
         else if (challenger === "Player") {
-            isGameActive = true;
-            isPlayerOrCPU.textContent = "Player2";
+            isPlayerOrCPU.textContent = "Player 2";
+            userWins.textContent = "Player One Wins: 0";
+            cpuWins.textContent = "Player Two Wins: 0";
             //Function to start PVP Game
             StartGame(mode)
         }
