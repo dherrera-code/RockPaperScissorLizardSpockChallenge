@@ -295,11 +295,13 @@ window.addEventListener("load", () => {
         //Pass these variables into a new function to start the game!
         if (challenger === "CPU") {
             isGameActive = true;
+            isPlayerOrCPU.textContent = "CPU";
             console.log(isGameActive)
             StartGame(mode)
         }
         else if (challenger === "Player") {
             isGameActive = true;
+            isPlayerOrCPU.textContent = "Player2";
             console.log(isGameActive)
             //Function to start PVP Game
             StartGame(mode)
