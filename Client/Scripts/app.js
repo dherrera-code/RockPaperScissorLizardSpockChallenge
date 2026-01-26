@@ -85,7 +85,6 @@ const DisplayChoices = (playerOne, playerTwo) => {
 //add event listeners for all select elements and create a function that test for the winner!
 //a function that will return the results of the game!
 const getWinner = (playerOne, playerTwo) => {
-    console.log("GetWinner is Evoked!" + playerTwo)
     if (playerOne === playerTwo) {
         return "It's a tie!\nTry Again!";
     }
@@ -142,7 +141,6 @@ const getWinner = (playerOne, playerTwo) => {
 
 function checkGameActive() {
     if (!(player1Wins < max_wins) || !(player2Wins < max_wins)) {
-        console.log("Display the Winner!");
         if (player1Wins >= max_wins) {
             playerTurn.textContent = "Player 1 is the Winner!!"
         }
@@ -153,7 +151,6 @@ function checkGameActive() {
             else playerTurn.textContent = "Player 2 is the Winner!!"
         }
         isGameActive = false;
-        // console.log(isGameActive);
         const newButton = document.createElement('button');
         newButton.textContent = "Play Again";
         newButton.className = "btn btn-primary ms-auto game-btn";
@@ -162,11 +159,11 @@ function checkGameActive() {
             mode = sessionStorage.getItem("currentMode");
             challenger = sessionStorage.getItem("cpuOrPlayer")
             if (mode != null) {
-                console.log(mode);
-                console.log(challenger);
+                // console.log(mode);
+                // console.log(challenger);
                 //Pass these variables into a new function to start the game!
                 isGameActive = true;
-                console.log(isGameActive)
+                // console.log(isGameActive)
                 StartGame(mode)
 
                 userWins.textContent = `Your wins: ${player1Wins}`;
@@ -175,9 +172,6 @@ function checkGameActive() {
                 displayPlayerOne.src = "";
                 displayPlayerTwo.src = "";
                 newButton.remove();
-            }
-            else {
-                console.log("No mode is selected!")
             }
 
         })
@@ -206,13 +200,8 @@ function CheckPvp(choice) {
 }
 
 SelectRock.addEventListener("click", async () => {
-    console.log("Rock has been pressed!")
     if (isGameActive && challenger === "CPU") {
         cpuAnswer = await getCPUAnswer();
-        console.log(cpuAnswer);
-        console.log(challenger);
-
-        // console.log(getWinner("Rock",cpuAnswer));
         let winner = getWinner("Rock", cpuAnswer);
         DisplayChoices("Rock", cpuAnswer);
         userWins.textContent = `Your wins: ${player1Wins}`;
@@ -223,11 +212,8 @@ SelectRock.addEventListener("click", async () => {
     else if (isGameActive && challenger === "Player") CheckPvp("Rock");
 });
 SelectPaper.addEventListener("click", async () => {
-    console.log("Paper has been pressed!")
     if (isGameActive && challenger === "CPU") {
         cpuAnswer = await getCPUAnswer();
-        // console.log(cpuAnswer);
-        // console.log(getWinner("Rock",cpuAnswer));
         let winner = getWinner("Paper", cpuAnswer);
         DisplayChoices("Paper", cpuAnswer);
         userWins.textContent = `Your wins: ${player1Wins}`;
@@ -239,11 +225,8 @@ SelectPaper.addEventListener("click", async () => {
 
 });
 SelectScissors.addEventListener("click", async () => {
-    console.log("Scissors has been pressed!")
     if (isGameActive && challenger === "CPU") {
         cpuAnswer = await getCPUAnswer();
-        // console.log(cpuAnswer);
-        // console.log(getWinner("Rock",cpuAnswer));
         let winner = getWinner("Scissors", cpuAnswer);
         DisplayChoices("Scissors", cpuAnswer);
         userWins.textContent = `Your wins: ${player1Wins}`;
@@ -255,11 +238,8 @@ SelectScissors.addEventListener("click", async () => {
 
 });
 SelectLizard.addEventListener("click", async () => {
-    console.log("Lizard has been pressed!")
     if (isGameActive && challenger === "CPU") {
         cpuAnswer = await getCPUAnswer();
-        console.log(cpuAnswer);
-        // console.log(getWinner("Rock",cpuAnswer));
         let winner = getWinner("Lizard", cpuAnswer);
         DisplayChoices("Lizard", cpuAnswer);
         userWins.textContent = `Your wins: ${player1Wins}`;
@@ -270,11 +250,8 @@ SelectLizard.addEventListener("click", async () => {
     else if (isGameActive && challenger === "Player") CheckPvp("Lizard");
 });
 SelectSpock.addEventListener("click", async () => {
-    console.log("Spock has been pressed!")
     if (isGameActive && challenger === "CPU") {
         cpuAnswer = await getCPUAnswer();
-        // console.log(cpuAnswer);
-        // console.log(getWinner("Rock",cpuAnswer));
         let winner = getWinner("Spock", cpuAnswer);
         DisplayChoices("Spock", cpuAnswer);
         userWins.textContent = `Your wins: ${player1Wins}`;
@@ -290,19 +267,15 @@ window.addEventListener("load", () => {
     mode = sessionStorage.getItem("currentMode");
     challenger = sessionStorage.getItem("cpuOrPlayer")
     if (mode != null) {
-        console.log(mode);
-        console.log(challenger);
         //Pass these variables into a new function to start the game!
         if (challenger === "CPU") {
             isGameActive = true;
             isPlayerOrCPU.textContent = "CPU";
-            console.log(isGameActive)
             StartGame(mode)
         }
         else if (challenger === "Player") {
             isGameActive = true;
             isPlayerOrCPU.textContent = "Player2";
-            console.log(isGameActive)
             //Function to start PVP Game
             StartGame(mode)
         }
@@ -311,6 +284,7 @@ window.addEventListener("load", () => {
         console.log("No mode is selected!")
     }
 })
+
 const StartGame = (mode) => {
     //test for mode then create a loop to enact the mode then call the CPU function!
     if (mode === "One Round Showdown") {
@@ -325,7 +299,6 @@ const StartGame = (mode) => {
         max_wins = 4;
         modeType.textContent = "Best out of Seven!";
     }
-    console.log(max_wins);
     player1Wins = 0;
     player2Wins = 0;
 }

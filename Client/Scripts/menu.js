@@ -11,13 +11,13 @@ const playCpuBtn = document.getElementById("playCpuBtn");
 
 playCpuBtn.addEventListener(('click'), () => {
     sessionStorage.setItem("cpuOrPlayer", "CPU");
-    console.log(sessionStorage.getItem('cpuOrPlayer'));
+    // console.log(sessionStorage.getItem('cpuOrPlayer'));
     modeOptions.show();
 })
 
 playPvpBtn.addEventListener("click", () => {
     sessionStorage.setItem("cpuOrPlayer", "Player")
-    console.log(sessionStorage.getItem('cpuOrPlayer'));
+    // console.log(sessionStorage.getItem('cpuOrPlayer'));
     modeOptions.show();
 })
 
