@@ -18,14 +18,6 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader()
         .AllowAnyMethod();
     });
-
-    // options.AddPolicy("Client", policy =>
-    // {
-    //     // policy.WithOrigins()
-    //     // policy.WithOrigins("http://localhost:5500","http://127.0.0.1:5500","http://localhost:5501","http://127.0.0.1:5501", "https://polite-sand-05308aa1e.6.azurestaticapps.net")
-    //     // .AllowAnyHeader()
-    //     // .AllowAnyMethod();
-    // });
 });
 
 var app = builder.Build();
@@ -41,7 +33,6 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
 app.UseAuthorization();
-
 
 app.MapControllers();
 

@@ -8,15 +8,12 @@ const SelectSpock = document.getElementById("SelectSpock");
 
 const displayPlayerOne = document.getElementById("displayPlayerOne")
 const displayPlayerTwo = document.getElementById("displayPlayerTwo");
-
 const displayResults = document.getElementById("displayResults");
 const playerTurn = document.getElementById("playerTurn");
 const modeType = document.getElementById("modeType");
-
 const userWins = document.getElementById("userWins");
 const cpuWins = document.getElementById("cpuWins");
 
-// New variables
 const isPlayerOrCPU = document.getElementById("isPlayerOrCPU");
 const restartBtn = document.getElementById("restartBtn");
 
