@@ -17,38 +17,38 @@
 
 <body>
     <header>
-        <h1 class="text-center Caveat" style="font-size: 48px; margin-top: 50px; margin-bottom: 30px;">Please Select
+        <h1 class="text-center Caveat" style="font-size: 48px; margin-top: 20px; margin-bottom: 30px;">Please Select
             Your
             Guess!</h1>
         <div class="container">
-            <div class="row">
-                <div class="col d-flex align-items-center">
-                    <img id="SelectRock" class="img-fluid" src="../Assets/Rock.png" alt="Rock!">
+            <div class="row bg-card-selection ">
+                <div class="col d-flex align-items-center justify-content-center">
+                    <img id="SelectRock" class="img-fluid cardBtns" src="../Assets/Rock.png" alt="Rock!">
                 </div>
-                <div class="col d-flex align-items-center">
-                    <img id="SelectPaper" class="img-fluid" src="../Assets/Paper.png" alt="Paper">
+                <div class="col d-flex align-items-center justify-content-center">
+                    <img id="SelectPaper" class="img-fluid cardBtns" src="../Assets/Paper.png" alt="Paper">
                 </div>
-                <div class="col d-flex align-items-center">
-                    <img id="SelectScissors" class="img-fluid" src="../Assets/Scissors.png" alt="">
+                <div class="col d-flex align-items-center justify-content-center">
+                    <img id="SelectScissors" class="img-fluid cardBtns" src="../Assets/Scissors.png" alt="Scissors">
                 </div>
-                <div class="col d-flex align-items-center">
-                    <img id="SelectLizard" class="img-fluid" src="../Assets/Lizard.png" alt="Lizard!">
+                <div class="col d-flex align-items-center justify-content-center">
+                    <img id="SelectLizard" class="img-fluid cardBtns" src="../Assets/Lizard.png" alt="Lizard!">
                 </div>
-                <div class="col d-flex align-items-center">
-                    <img id="SelectSpock" class="img-fluid" src="../Assets/Spock.png" alt="Spock!">
+                <div class="col d-flex align-items-center justify-content-center">
+                    <img id="SelectSpock" class="img-fluid cardBtns" src="../Assets/Spock.png" alt="Spock!">
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <div class="col-4">
-                    <h2 class="text-center">Player 1</h2>
+                <div class="col-4" >
+                    <h2 style="font-size: 48px" class="text-center Caveat">Player 1</h2>
                 </div>
                 <div class="col-4">
-                    <h2 class="text-center" id="isPlayerOrCPU">Player 2/CPU</h2>
+                    <h2 style="font-size: 48px" class="text-center Caveat" id="isPlayerOrCPU">Player 2/CPU</h2>
                 </div>
             </div>
             <div class="row mt-4 d-flex justify-content-center">
                 <div class="col text-center">
-                    <h2 class="Catamaran" style="font-size: 50px;" id="playerTurn">Go Player 1!</h2>
+                    <h2 class="Catamaran" style="font-size: 36px;" id="playerTurn">Go Player 1!</h2>
                 </div>
             </div>
         </div>
@@ -56,19 +56,19 @@
 
     <section>
         <div class="container">
-            <div class="row mt-5" style="min-height: 230px;">
-                <div class="col d-flex align-items-center">
+            <div class="row mt-5">
+                <div class="col d-flex justify-content-end">
                     <img class="ms-auto" src="" id="displayPlayerOne">
                 </div>
                 <div class="col-2 d-flex justify-content-center align-items-center">
                     <p class="text-center Caveat" style="font-size: 48px;">VS.</p>
                 </div>
-                <div class="col d-flex align-items-center">
-                    <img class="me-auto d-block" style="height: 180px;" id="displayPlayerTwo" src="">
+                <div class="col">
+                    <img class="me-auto" id="displayPlayerTwo" src="">
                 </div>
             </div>
-            <div class="row">
-                <p id="displayResults" class="text-center" style="font-size: 48px;"></p>
+            <div class="row mt-2">
+                <p id="displayResults" class="text-center" style="font-size: 30px;"></p>
             </div>
         </div>
     </section>
@@ -78,13 +78,13 @@
             <div class="row">
                 <div class="col">
                     <h3 id="modeType" class="sourceSerifPro pb-3" style="font-size: 36px;">Insert Selected Mode!</h3>
-                    <p id="userWins" style="font-size: 32px;" class="sourceSerifPro">Your wins: 0</p>
-                    <p id="cpuWins" style="font-size: 32px;" class="sourceSerifPro">CPU wins: 0 </p>
+                    <p id="userWins" style="font-size: 30px;" class="sourceSerifPro">Your wins: 0</p>
+                    <p id="cpuWins" style="font-size: 30px;" class="sourceSerifPro">CPU wins: 0 </p>
                 </div>
                 <div class="col">
                     <div class="row">
-                        <a style="width: 380px; height: 70px; font-size: 40px;" href="../index.html"
-                            class="btn btn-secondary btn-lg mb-5 ms-auto sourceSerifPro text-center">Back to Rules!</a>
+                        <a href="../index.html"
+                            class="btn btn-secondary mb-5 ms-auto sourceSerifPro text-center game-btn">Back to Rules!</a>
                     </div>
                     <div class="row" id="restartBtn">
                         <!-- <button style="width: 380px; height: 70px; font-size: 40px;" class="btn btn-info ms-auto">Play again</button> -->

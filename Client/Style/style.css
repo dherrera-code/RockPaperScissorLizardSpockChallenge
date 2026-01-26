@@ -1,25 +1,48 @@
-body{
-    background-color: #EDEAE4;
+body {
+    background-image: url(../Assets/space\ background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
 }
-.sourceSerifPro{
+
+.sourceSerifPro {
     font-family: Source Serif Pro;
     font-style: normal;
 }
-.Caveat{
+
+.Caveat {
     font-family: Caveat;
 }
-.chakra-petch-regular{
+
+.chakra-petch-regular {
     font-family: "Chakra Petch", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
-.catamaran{
-  font-family: "Catamaran", sans-serif;
-  font-optical-sizing: auto;
-  
-  font-style: normal;
+
+.catamaran {
+    font-family: "Catamaran", sans-serif;
+    /* font-optical-sizing: auto; */
+    font-style: normal;
 }
-.modeBtn{
-    width: 670px;
-    font-size: 60px;
+
+.modeBtn {
+    height: 60px;
+    width: 378px;
+    font-size: 30px;
+}
+.game-btn{
+    height: 60px;
+    width: 240px;
+    font-size: 30px
+}
+
+.cardBtns {
+    height: 120px;
+}
+
+.bg-card-selection {
+    background-color: #0C008F;
+    opacity: 90;
+    padding: 15px;
 }

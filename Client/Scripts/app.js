@@ -42,44 +42,44 @@ async function getCPUAnswer() {
 const DisplayChoices = (playerOne, playerTwo) => {
     if (playerOne === "Rock") {
         displayPlayerOne.src = "../Assets/Rock.png";
-        displayPlayerOne.style = "height: 180px;"
+        displayPlayerOne.className = "cardBtns"
     }
     else if (playerOne === "Paper") {
         displayPlayerOne.src = "../Assets/Paper.png";
-        displayPlayerOne.style = "height: 173px";
+        displayPlayerOne.className = "cardBtns";
     }
     else if (playerOne === "Scissors") {
         displayPlayerOne.src = "../Assets/Scissors.png";
-        displayPlayerOne.style = "height: 160px";
+        displayPlayerOne.className = "cardBtns";
     }
     else if (playerOne === "Lizard") {
         displayPlayerOne.src = "../Assets/Lizard.png";
-        displayPlayerOne.style = "height: 173px";
+        displayPlayerOne.className = "cardBtns";
     }
     else {
         displayPlayerOne.src = "../Assets/Spock.png"
-        displayPlayerOne.style = "height: 230px";
+        displayPlayerOne.className = "cardBtns";
     }
 
     if (playerTwo === "Rock") {
         displayPlayerTwo.src = "../Assets/Rock.png";
-        displayPlayerTwo.style = "height: 180px;"
+        displayPlayerTwo.className = "cardBtns";
     }
     else if (playerTwo === "Paper") {
         displayPlayerTwo.src = "../Assets/Paper.png";
-        displayPlayerTwo.style = "height: 173px";
+        displayPlayerTwo.className = "cardBtns";
     }
     else if (playerTwo === "Scissors") {
         displayPlayerTwo.src = "../Assets/Scissors.png";
-        displayPlayerTwo.style = "height: 160px";
+        displayPlayerTwo.className = "cardBtns";
     }
     else if (playerTwo === "Lizard") {
         displayPlayerTwo.src = "../Assets/Lizard.png";
-        displayPlayerTwo.style = "height: 173px";
+        displayPlayerTwo.className = "cardBtns";
     }
     else {
         displayPlayerTwo.src = "../Assets/Spock.png";
-        displayPlayerTwo.style = "height: 230px";
+        displayPlayerTwo.className = "cardBtns";
     }
 }
 //add event listeners for all select elements and create a function that test for the winner!
@@ -156,8 +156,7 @@ function checkGameActive() {
         // console.log(isGameActive);
         const newButton = document.createElement('button');
         newButton.textContent = "Play Again";
-        newButton.className = "btn btn-primary ms-auto";
-        newButton.style = "width: 380px; height: 70px; font-size: 40px;"
+        newButton.className = "btn btn-primary ms-auto game-btn";
         newButton.addEventListener(("click"), () => {
 
             mode = sessionStorage.getItem("currentMode");
@@ -223,7 +222,6 @@ SelectRock.addEventListener("click", async () => {
     }
     else if (isGameActive && challenger === "Player") CheckPvp("Rock");
 });
-
 SelectPaper.addEventListener("click", async () => {
     console.log("Paper has been pressed!")
     if (isGameActive && challenger === "CPU") {

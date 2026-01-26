@@ -21,6 +21,7 @@ namespace API.Controllers
         {
             return _response.CPUsResponse();
         }
+        // * BackEnd API CAll!
         //* https://herrerahostingdh-ayf7fhbzg6fdgvdr.westus3-01.azurewebsites.net/api/CPUResponse
     }
 }

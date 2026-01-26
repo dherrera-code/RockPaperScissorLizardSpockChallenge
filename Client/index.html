@@ -20,10 +20,10 @@
 <body>
 
   <modal id="optionsModal" class="modal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content">
-        <div class="modal-header text-center">
-          <h5 class="modal-title p-5" style="font-size: 60px;">Select the mode you want to play!</h5>
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="background-color: #0B0044;">
+        <div class="modal-header d-flex justify-content-center">
+          <h5 class="modal-title p-5 text-white" style="font-size: 40px;">Select the mode you want to play!</h5>
         </div>
         <div class="modal-body container">
           <div class="row mb-5">
@@ -52,19 +52,20 @@
     </div>
   </modal>
 
-  <header class="container" style="margin-top: 100px;">
+  <header class="container mt-5">
     <div class="row">
       <div class="col-7">
-        <h1 class="mb-5 Caveat" style="font-size: 60px;">Lets play Rock Paper Scissors Lizard Spock inspired by Big Bang
+        <h1 class="mb-4 Caveat" style="font-size: 45px;">Lets play Rock Paper Scissors Lizard Spock inspired by Big Bang
           Theory!</h1>
-        <h2 class="mb-3 Caveat" style="font-size: 60px;">Description:</h2>
-        <p class="catamaran" style="font-size: 36px;">The premise of the game is just like the classic game of rock
+        <h2 class="mb-3 Caveat" style="font-size: 30px;">Description:</h2>
+        <p class="catamaran bg-card-selection" style="font-size: 24px;">The premise of the game is just like the classic
+          game of rock
           paper scissors but with a twist! In this game, you have 5 choices of Rock, Paper, Scissors, Lizard, Spock!
           Please reference the image diagram to see the rules of this game! If there is a tie, the current round will be
           reset until a winner of the round is decided!</p>
       </div>
-      <div class="col-5">
-        <img src="./Assets/RockPaperScissorsLizardSpockDiagram.jpg" class="img-fluid"
+      <div class="col">
+        <img src="./Assets/RockPaperScissorsLizardSpockDiagram.jpg" class="img-fluid object-fit-contain" style="height: 450px;"
           alt="A diagram telling user how the game works!">
       </div>
     </div>
@@ -73,18 +74,18 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h2 class="Caveat" style="font-size: 60px;">Mode Options:</h2>
-        <h3 style="font-size: 36px;">One Round Showdown, Best out of 5 and Best out of 7!</h3>
+        <h2 class="Caveat" style="font-size: 40px;">Mode Options:</h2>
+        <h3 style="font-size: 30px;">One Round Showdown, Best out of 5 and Best out of 7!</h3>
       </div>
     </div>
     <div class="row">
-      <div class="col my-5">
-        <button id="playPvpBtn" class="btn btn-lg btn-primary me-auto mb-5" href="#" style="font-size: 60px;">Play with a friend!</button></div>
-        <div class="col my-5 d-flex justify-content-end">
-          <button id="playCpuBtn" class="btn btn-lg btn-primary mx-auto mb-5" href="#" style="font-size: 60px;">Play
-            CPU!</button>
-        </div>
-      
+      <div class="col my-4">
+        <button id="playPvpBtn" class="btn btn-primary me-auto mb-2 modeBtn ">Play with a friend!</button>
+      </div>
+      <div class="col my-4 d-flex justify-content-end">
+        <button id="playCpuBtn" class="btn btn-primary mx-auto  modeBtn">Play
+          CPU!</button>
+      </div>
     </div>
   </div>
 
