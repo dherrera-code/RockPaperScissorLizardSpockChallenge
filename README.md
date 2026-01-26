@@ -11,4 +11,4 @@ After creating the endpoint and figma, I implemented a PVP mode and integrated a
 
 Peer Review: For Endpoint!- Carlos Lopez: Everything works well goodjob!
 
-Peer Review for the build () :
+Peer Review for the build (Darcy Rose) : works well, I really like that you used buttons. it hides the answers from the other user, which I did not incorporate into my design. I think the design is a bit big for the screen and could be a bit more visually cohesive in terms of color palette. maybe visit the website coolors for inspiration? That said the logic is sound and everything is functional. well done!
